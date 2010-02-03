@@ -58,9 +58,9 @@ public class GraderAdmin extends BaseBVTTest  {
 						
 				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtUserName", GraderName);
 				obj.browser.select("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_ddlRole","label=Grader");
-				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtName", "TestGrader");
+				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtName", GraderName);
 				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtPhone", "(123)123-1234");
-				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtEmail", "testga10@aditi.com");
+				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtEmail", "testgrader1@aditi.com");
 				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtAddress", "testaddress");
 				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtCity", "testcity");
 				obj.browser.select("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_ddlState", "label=ALASKA");
