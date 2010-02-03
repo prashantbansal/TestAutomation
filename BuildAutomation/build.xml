@@ -47,7 +47,7 @@
 
 	<target name="run-ff-tests" depends="compile" description="run your test suite">
 		<junit printsummary="yes" errorProperty="test.failed" failureProperty="test.failed" showoutput="yes" fork="yes" includeantruntime="no">
-			<jvmarg value="-DBrowserStartCommand=*firefox" />
+			<jvmarg value="-DBrowser=*firefox" />
 			<classpath>
 				<pathelement path="${build}" />
 				<fileset dir="${ant.home}/lib">
@@ -68,7 +68,7 @@
 		
 	<target name="run-ie-tests" depends="compile" description="run your test suite">
 		<junit printsummary="yes" errorProperty="test.failed" failureProperty="test.failed" showoutput="yes" fork="yes" includeantruntime="no">
-			<jvmarg value="-DBrowserStartCommand=*iexplore" />
+			<jvmarg value="-DBrowser=*iexplore" />
 			<classpath>
 				<pathelement path="${build}" />
 				<fileset dir="${ant.home}/lib">
@@ -111,7 +111,6 @@
 		<tstamp />
 		<!-- Create directory structures -->
 		<mkdir dir="${build}" />
-		<mkdir dir="${lib}" />
 		<mkdir dir="${dist}/lib" />
 		<mkdir dir="${reports}" />
 		<mkdir dir="${reports}/raw/" />
