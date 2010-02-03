@@ -67,14 +67,14 @@ public class SuperAdmin extends BaseBVTTest  {
 				obj.browser.focus("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtUserName");				
 				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtUserName", GraderAdminName);
 				obj.browser.select("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_ddlRole","label=Grader Admin");
-				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtName", "TestGraderAdmin");
+				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtName", GraderAdminName);
 				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtPhone", "(123)123-1234");
 				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtEmail", "testga1@aditi.com");
 				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtAddress", "testaddress");
 				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtCity", "testcity");
 				obj.browser.select("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_ddlState", "label=ALASKA");
 				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_txtZipCode", "12345");
-				obj.browser.select("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_ddlGraderPod", "label=Pod FL");
+				obj.browser.select("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_ddlGraderPod","label=" + obj.browser.getText("//option[@value='1']"));
 				obj.browser.click("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_gradersTab_graders_userProfile_btnSaveProfile");
 
 				for (int second = 0;; second++) {
@@ -84,6 +84,7 @@ public class SuperAdmin extends BaseBVTTest  {
 				}
 				
 				assertEquals(GraderAdminName, obj.browser.isTextPresent(GraderAdminName));
+				
 				/* ------------------- CREATE NEW GRADER ADMIN COMPLETED  -------------------*/
 				
 				/* ------------------- CREATE NEW POD STARTED  -------------------*/
@@ -98,7 +99,6 @@ public class SuperAdmin extends BaseBVTTest  {
 				}
 				
 				obj.browser.type("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_podsTab_podsControl_podAdd_txtPodName", PODName);
-				//obj.browser.select("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_podsTab_podsControl_podAdd_ddlState", "label=PA");
 				obj.browser.click("ctl00_ctl00_ContentPlaceHolder1Base_ContentPlaceHolder1_tabContainer_podsTab_podsControl_podAdd_btnAddState");
 				
 				for (int second = 0;; second++) {
