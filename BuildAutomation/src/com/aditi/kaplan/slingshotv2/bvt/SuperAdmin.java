@@ -34,7 +34,7 @@ public class SuperAdmin extends BaseBVTTest  {
 		 * This method consists of the actual testcase performed by a Grader Admin.
 		 */
 		@Test
-		public void testBVTGraderAdminFunctions()
+		public void testBVTSuperAdminFunctions()
 		{
 			try
 			{
