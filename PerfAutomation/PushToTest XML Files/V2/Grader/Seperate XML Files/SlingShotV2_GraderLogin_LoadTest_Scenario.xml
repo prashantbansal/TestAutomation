@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+PushToTest(tm) Test Scenario for a load test
+
+PushToTest is the open-source application performance management (APM)
+and test automation platform.
+
+For technical support, documentation, and help see http://www.pushtotest.com
+-->
+<testscenario xmlns="www.pushtotest.com/tm5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="www.pushtotest.com/XSD/testscenario.xsd" version="2.0">
+    <basics>
+      <name>V2 Grader Login - Load Test</name>
+      <defaultdirectory>{scenario}</defaultdirectory>
+    </basics>
+    <testnodes>
+      <node name="localhost" location="http://localhost:8080/TestNetwork/ws/TestNode"/>
+    </testnodes>
+    <resources>
+      <data path="../grader.csv"/>
+	  <data path="../v2site.csv"/>
+      <jar path="../SlingShotV2.jar"/>
+    </resources>
+    <DataSources>
+      <dpl name="Grader_DPL" type="HashDPL">
+        <argument dpl="rsc" index="0" name="file" value="getDataByIndex"/>
+      </dpl>
+	  <dpl name="Site_DPL" type="HashDPL">
+        <argument dpl="rsc" index="1" name="file" value="getDataByIndex"/>
+      </dpl>
+    </DataSources>
+    <loadtest>
+      <testusecase>
+        <dimensions>
+          <crlevels>
+            <crlevel value="1"/>
+          </crlevels>
+          <usecases>
+            <usecase name="GraderLogin_Usecase">
+              <sequence name="GraderLogin_Sequence" proportion="100">
+                <test>
+                  <run name="GraderLogin_Test" method="runTest" testclass="com.aditi.kaplan.slingshotv2.Grader.GraderLogin" module="jar:SlingShotV2.jar" langtype="java">
+                    <argument name="DPL_Properties" dpl="Grader_DPL" value="getNextData"/>
+					<argument name="Site_Properties" dpl="Site_DPL" value="getData"/>
+                  </run>
+                </test>
+				<teardown instance="selenium" langtype="java" method="tearDown" name="tearDown" testclass="com.aditi.kaplan.slingshotv2.Grader.GraderLogin"/>   
+              </sequence>
+            </usecase>
+          </usecases>
+        </dimensions>
+      </testusecase>
+    </loadtest>
+    <logs showsummary="false" step="false"/>
+    <monitoring enablednodes="true" enabledtarget="false"/>
+    <options>
+        <sleeptime>1000</sleeptime>
+        <delayBetweenStartingUseCases time="1000"/>
+        <delayBetweenTestCases time="100"/>
+        <testTime time="60000"/>
+    </options>
+    <chart samples="0" usedatacompression="false" xmlns:ns2="www.pushtotest.com/tm5">
+        <ns2:graph name="Step Duration" type="Bars">
+            <ns2:XAxis value="Steps"/>
+            <ns2:YAxis value="Duration Average"/>
+            <ns2:options>
+                <ns2:option name="periods" value="1"/>
+            </ns2:options>
+            <ns2:series>
+                <ns2:name>Periods</ns2:name>
+            </ns2:series>
+        </ns2:graph>
+    </chart>
+</testscenario>
+

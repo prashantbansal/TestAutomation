@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SlingShotV2" basedir="." default="dist">
+    <property name="project_name" value="SlingShotV2" />
+    <property name="src.dir" value="src"></property>
+    <property name="build.dir" value="build"></property>
+    <property name="lib.dir" value="lib"></property>
+    <property name="jar_name" value="${project_name}.jar" />
+
+    <path id="master-classpath">
+        <fileset dir="${lib.dir}">
+            <include name="*.jar"></include>
+        </fileset>
+        <pathelement path="${build.dir}"></pathelement>
+    </path>
+
+    <target name="clean" description="Removes build directory and test results.">
+        <delete dir="${build.dir}"></delete>
+    </target>
+    
+    <target name="create" depends="clean" description="Creates build directory and test results.">
+        <mkdir dir="${build.dir}"></mkdir>
+    </target>
+    
+    <target name="build" depends="create" description="Build Java files.">
+        <mkdir dir="${build.dir}"></mkdir>
+        <javac destdir="${build.dir}" debug="true" deprecation="false" optimize="false" failonerror="true">
+            <src path="${src.dir}"></src>
+            <classpath refid="master-classpath"></classpath>
+        </javac>
+<!--        <copy todir="${build.dir}">
+            <fileset dir="${src.dir}">
+                <include name="**/*.properties" />
+            </fileset>
+        </copy> -->
+    </target>
+    
+    <target name="dist" depends="build" description="Generate the distributable file">
+        <jar jarfile="${build.dir}/${jar_name}" basedir="${build.dir}" />
+    </target>	
+    
+</project>
