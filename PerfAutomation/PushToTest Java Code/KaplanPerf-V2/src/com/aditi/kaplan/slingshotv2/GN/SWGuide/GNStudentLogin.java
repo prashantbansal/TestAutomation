@@ -48,7 +48,7 @@ public class GNStudentLogin
 		}
 		catch(Exception ex)
 		{
-			System.out.println("****** SubmitEssay  Failed ******");
+			System.out.println("****** GNStudentLogin  Failed ******");
             utils.selenium.saveSource("GNStudentLogin-report-failed.html");
             throw ex;
 		}

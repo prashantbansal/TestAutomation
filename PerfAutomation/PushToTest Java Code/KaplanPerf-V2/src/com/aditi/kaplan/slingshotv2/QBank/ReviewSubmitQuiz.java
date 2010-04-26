@@ -46,13 +46,13 @@ public class ReviewSubmitQuiz
 	            utils.studentLogin();
 	            
 			
-			utils.selenium.waitForElementPresent("TabPractice");
+			utils.selenium.waitForElementPresent("link=Practice");
 
-			utils.selenium.click("TabPractice");
+			utils.selenium.click("link=Practice");
 			utils.selenium.click("ctl00_lnkMBEQBank");
 			utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_CreateQuizMasterControlUC_CreateQuizUC_TextBox2");
 
-			utils.selenium.type("ctl00_ContentPlaceHolder1_CreateQuizMasterControlUC_CreateQuizUC_TextBox2", "50");
+			utils.selenium.type("ctl00_ContentPlaceHolder1_CreateQuizMasterControlUC_CreateQuizUC_TextBox2", "5");
 			
 			utils.selenium.click("ctl00_ContentPlaceHolder1_CreateQuizMasterControlUC_CreateQuizUC_ImageButton1");
 			utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_ucQuizInterface_Submit_LinkBut_Img");
@@ -65,7 +65,7 @@ public class ReviewSubmitQuiz
 			utils.selenium.chooseOkOnNextConfirmation();
 			utils.selenium.click("ctl00_ContentPlaceHolder1_ucQuizInterface_Submit_LinkBut_Img");
 			utils.selenium.getConfirmation();
-						
+			
 			utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_ucQuizInterface_btnQBankHome_Img");			
 			utils.selenium.click("ctl00_ContentPlaceHolder1_ucQuizInterface_btnQBankHome_Img");
 			utils.selenium.waitForPageToLoad("45000");

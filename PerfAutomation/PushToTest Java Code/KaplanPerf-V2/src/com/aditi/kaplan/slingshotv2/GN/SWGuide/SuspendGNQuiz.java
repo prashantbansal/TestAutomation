@@ -47,7 +47,7 @@ public class SuspendGNQuiz
             utils.selenium.waitForElementPresent("ctl00_Label_UserWelcomeInfo");
             
             utils.selenium.click("TabStudyPlan");
-            utils.selenium.click("//li[@id='LinkToPSPHome']/a");
+            utils.selenium.click("link=Strength and Weakness Guide");
             utils.selenium.waitForPageToLoad("30000");
             
             utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_repeaterTopic_ctl00_imgQuiz1Status");
@@ -56,7 +56,6 @@ public class SuspendGNQuiz
             utils.selenium.click("ctl00_ContentPlaceHolder1_repeaterTopic_ctl00_btnToggle");
 			
             utils.selenium.pause("3000");
-           // Thread.sleep(3000);
 			
             utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_repeaterTopic_ctl00_ucQuizInfo_lnkReview");
             utils.selenium.click("ctl00_ContentPlaceHolder1_repeaterTopic_ctl00_ucQuizInfo_lnkReview");
@@ -67,20 +66,14 @@ public class SuspendGNQuiz
             utils.selenium.click("ctl00_ContentPlaceHolder1_ucCPQHomeView_btnStartQuiz");
             utils.selenium.waitForPageToLoad("30000");
             
-            utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_ucQuizInterface_answerSheetUC_repeater1_ctl00_answerOptionA_ToggleButton");
-            
-            utils.selenium.click("ctl00_ContentPlaceHolder1_ucQuizInterface_answerSheetUC_repeater1_ctl00_answerOptionA_ToggleButton");
 			utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_ucQuizInterface_answerSheetUC_repeater1_ctl00_answerOptionA");
             
 			utils.selenium.click("ctl00_ContentPlaceHolder1_ucQuizInterface_answerSheetUC_repeater1_ctl00_answerOptionA");
-			utils.selenium.click("ctl00_ContentPlaceHolder1_ucQuizInterface_questionView_rptrAnswerOptions_ctl00_option_chkAnswerOption");
 			
 			utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_ucQuizInterface_Suspend_LinkBut_Img");
 			utils.selenium.chooseOkOnNextConfirmation();
-			utils.selenium.click("ctl00_ContentPlaceHolder1_ucQuizInterface_Suspend_LinkBut_Img");
-			
+			utils.selenium.click("ctl00_ContentPlaceHolder1_ucQuizInterface_Suspend_LinkBut_Img");	
 			utils.selenium.getConfirmation();
-			//System.out.print(getAlertMessage);
 			
 			utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_ucCPQHomeView_ucPreviousTestSuspended_GridView1_ctl02_LinkButton3");
 			
@@ -88,7 +81,7 @@ public class SuspendGNQuiz
 		}
 		catch(Exception ex)
 		{
-			System.out.println("****** SubmitEssay  Failed ******");
+			System.out.println("****** SuspendGNQuiz  Failed ******");
             utils.selenium.saveSource("SuspendGNQuiz-report-failed.html");
             throw ex;
 		}

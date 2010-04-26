@@ -54,7 +54,7 @@ public class Syllabus
 		}
 		catch(Exception ex)
 		{
-			System.out.println("****** SubmitEssay  Failed ******");
+			System.out.println("****** Syllabus Failed ******");
             utils.selenium.saveSource("Syllabus-report-failed.html");
             throw ex;
 		}

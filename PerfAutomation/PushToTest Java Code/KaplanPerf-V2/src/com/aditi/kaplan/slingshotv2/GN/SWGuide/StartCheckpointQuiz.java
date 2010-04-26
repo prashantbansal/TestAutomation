@@ -46,8 +46,8 @@ public class StartCheckpointQuiz
             utils.studentLogin();
             utils.selenium.waitForElementPresent("ctl00_Label_UserWelcomeInfo");
             
-            utils.selenium.click("TabStudyPlan");
-            utils.selenium.click("//li[@id='LinkToPSPHome']/a");
+            utils.selenium.click("link=Study Plan");
+            utils.selenium.click("link=Strength and Weakness Guide");
             utils.selenium.waitForPageToLoad("30000");
             
             utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_repeaterTopic_ctl00_imgQuiz1Status");
@@ -56,7 +56,6 @@ public class StartCheckpointQuiz
             utils.selenium.click("ctl00_ContentPlaceHolder1_repeaterTopic_ctl00_btnToggle");
 			
             utils.selenium.pause("3000");
-           // Thread.sleep(3000);
 			
             utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_repeaterTopic_ctl00_ucQuizInfo_lnkReview");
             utils.selenium.click("ctl00_ContentPlaceHolder1_repeaterTopic_ctl00_ucQuizInfo_lnkReview");
@@ -71,7 +70,7 @@ public class StartCheckpointQuiz
 		}
 		catch(Exception ex)
 		{
-			System.out.println("****** SubmitEssay  Failed ******");
+			System.out.println("****** StartCheckpointQuiz  Failed ******");
             utils.selenium.saveSource("StartCheckpointQuiz-report-failed.html");
             throw ex;
 		}

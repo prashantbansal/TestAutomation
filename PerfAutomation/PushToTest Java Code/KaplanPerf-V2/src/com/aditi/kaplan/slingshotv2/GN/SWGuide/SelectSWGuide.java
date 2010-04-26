@@ -56,7 +56,7 @@ public class SelectSWGuide
 		}
 		catch(Exception ex)
 		{
-			System.out.println("****** SubmitEssay  Failed ******");
+			System.out.println("****** SelectSWGuide  Failed ******");
             utils.selenium.saveSource("SelectSWGuide-report-failed.html");
             throw ex;
 		}

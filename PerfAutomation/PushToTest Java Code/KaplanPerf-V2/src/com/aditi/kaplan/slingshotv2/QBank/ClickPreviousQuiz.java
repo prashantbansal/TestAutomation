@@ -3,7 +3,7 @@ package com.aditi.kaplan.slingshotv2.QBank;
 import com.aditi.kaplan.slingshotv2.Utilities.Utils;
 
 /***
- * This class is used to test ClickPreviousQuiz functionality of QBank feature.
+ * This class is used to test Click Previous Quiz functionality of QBank feature.
  * @author Aditi
  *
  */
@@ -45,14 +45,14 @@ public class ClickPreviousQuiz
 
             utils.studentLogin();
 	            
-	        utils.selenium.waitForElementPresent("TabPractice");
+	        utils.selenium.waitForElementPresent("link=Practice");
 
-			utils.selenium.click("TabPractice");
+			utils.selenium.click("link=Practice");
 			utils.selenium.click("ctl00_lnkMBEQBank");
 
 			utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_CreateQuizMasterControlUC_CreateQuizUC_TextBox2");
 
-			utils.selenium.type("ctl00_ContentPlaceHolder1_CreateQuizMasterControlUC_CreateQuizUC_TextBox2", "50");
+			utils.selenium.type("ctl00_ContentPlaceHolder1_CreateQuizMasterControlUC_CreateQuizUC_TextBox2", "5");
 			utils.selenium.click("ctl00_ContentPlaceHolder1_CreateQuizMasterControlUC_CreateQuizUC_ImageButton1");
 			utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_ucQuizInterface_Next_LinkBut_Img");
 

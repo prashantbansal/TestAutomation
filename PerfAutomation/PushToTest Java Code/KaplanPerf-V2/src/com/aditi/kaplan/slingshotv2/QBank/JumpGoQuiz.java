@@ -45,22 +45,25 @@ public class JumpGoQuiz
 
             utils.studentLogin();
 	            
-			utils.selenium.waitForElementPresent("TabPractice");
+			utils.selenium.waitForElementPresent("link=Practice");
 
-			utils.selenium.click("TabPractice");
+			utils.selenium.click("link=Practice");
 			utils.selenium.click("ctl00_lnkMBEQBank");
 
 			utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_CreateQuizMasterControlUC_CreateQuizUC_TextBox2");
 
-			utils.selenium.type("ctl00_ContentPlaceHolder1_CreateQuizMasterControlUC_CreateQuizUC_TextBox2", "50");
+			utils.selenium.type("ctl00_ContentPlaceHolder1_CreateQuizMasterControlUC_CreateQuizUC_TextBox2", "5");
 
 			utils.selenium.click("ctl00_ContentPlaceHolder1_CreateQuizMasterControlUC_CreateQuizUC_ImageButton1");
 			utils.selenium.waitForPageToLoad("45000");
-			utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_ucQuizInterface_answerSheetUC_goToControlUC_TextBox_Question");
-
-			utils.selenium.type("ctl00_ContentPlaceHolder1_ucQuizInterface_answerSheetUC_goToControlUC_TextBox_Question", "10");
+			//utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_ucQuizInterface_answerSheetUC_goToControlUC_TextBox_Question");
+					
+			utils.selenium.type("ctl00_ContentPlaceHolder1_ucQuizInterface_answerSheetUC_goToControlUC_TextBox_Question", "3");
+			
+			utils.selenium.waitForElementPresent("ctl00_ContentPlaceHolder1_ucQuizInterface_answerSheetUC_goToControlUC_Button_Go");
 			utils.selenium.click("ctl00_ContentPlaceHolder1_ucQuizInterface_answerSheetUC_goToControlUC_Button_Go");
-			utils.selenium.waitForTextPresent("Question: 10 of 50");
+					
+			utils.selenium.assertTextPresent("Question: 3 of 5");
 
 		}
 		catch (Exception ex) 

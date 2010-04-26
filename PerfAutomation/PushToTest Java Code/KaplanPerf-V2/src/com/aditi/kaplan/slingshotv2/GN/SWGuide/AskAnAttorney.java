@@ -48,12 +48,13 @@ public class AskAnAttorney
             utils.selenium.waitForElementPresent("//a[contains(text(),'Ask an Attorney')]");
 
             utils.selenium.click("link=Ask an Attorney");
-            utils.selenium.waitForElementPresent("link=Home");
+            utils.selenium.waitForPageToLoad("45000");
+            //utils.selenium.waitForElementPresent("link=Welcome");
 			
 		}
 		catch(Exception ex)
 		{
-			System.out.println("****** SubmitEssay  Failed ******");
+			System.out.println("****** AskAnAttorney  Failed ******");
             utils.selenium.saveSource("AskAnAttorney-report-failed.html");
             throw ex;
 		}
